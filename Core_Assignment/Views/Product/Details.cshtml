@@ -1,0 +1,51 @@
+﻿@model BusinessModel.ProductBO
+
+<div>
+    <h4 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style:italic; font-weight:bolder; font-size:35px; color:green;">Product</h4>
+    <button style="width:50px; background-color:lightgreen; margin-left:3px; margin-top:5px;">
+        <a asp-action="Index"><i class="fa fa-home fa-2x" style="color:darkred;"></i></a>
+    </button>
+    <a asp-action="Edit" asp-route-id="@Model.Id"> <button><i class="fa fa-edit fa-2x" style="color:indigo;"></i></button> </a>
+    <br />
+    <br />
+    <dl class="row" style="font-family:'Times New Roman', Times, serif; font-style:italic; font-weight:bolder; background-color:lightgreen; color:darkblue; font-size:20px; margin-left:3px;">
+
+
+        <dt class="col-sm-2" style="margin-top:20px;">
+            @Html.DisplayNameFor(model => model.Product_Image)
+        </dt>
+        <dd class="col-sm-10" style="margin-top:20px;">
+            <img src="@Model.Product_Image" height="200px" width="200px" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product_Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product_Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product_Description)
+        </dd>
+        <dt class="col-sm-2">
+           @Html.DisplayNameFor(model => model.Product_Price)
+        </dt>
+        <dd class="col-sm-10">
+            ₹ @Html.DisplayFor(model => model.Product_Price)
+        </dd>
+
+
+    </dl>
+</div>
+<div>
+
+
+</div>
+
+<br />
+
+
+<br />
+<br />

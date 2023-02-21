@@ -1,0 +1,81 @@
+﻿@model IEnumerable<BusinessModel.ProductBO>
+
+@{
+
+    ViewData["Title"] = "Index";
+
+}
+
+<link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+<link href="~/lib/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+<button style="width:50px; background-color:aqua;">
+    <a asp-action="Create"><i class="fa fa-plus"></i></a>
+</button>
+@*<button style=" width:50px; margin-left:25px; background-color:burlywood">
+    <a asp-action="Index"> <i class="fa-solid fa-sync fa-spin"></i></a>
+</button>*@
+
+@*<form class="form-inline" action="/Product/Index">
+
+        @Html.TextBox("Search", ViewBag.search as string, new { @class = "form-control mr-1", placeholder = "Search" })
+        <button type="submit" class="glyphicon glyphicon-search" style="height:35px; width:60px; background-color:darkblue"><i class="fa fa-search" style="color:white;"></i></button>
+
+
+    </form>*@
+
+
+<br />
+<table id="Datatable" class="table table-bordered " style="border-color:black; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-style:italic; color:white;">
+    <thead>
+        <tr style="background-color:cornflowerblue; text-align:center;">
+            <th>
+                @Html.DisplayNameFor(model => model.Product_Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product_Name)
+                @*<a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"><i class='fas fa-chevron-down' style="color:white;"></i></a>*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product_Description)
+            </th>
+            <th>
+
+                @Html.DisplayNameFor(model => model.Product_Price)
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="background-color:lightskyblue; color:black; font-weight:bolder; text-align:center;">
+                <td style="margin-top:10px;">
+                    <img src="@item.Product_Image" height="70px" width="70px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_Description)
+                </td>
+                <td>
+                    ₹ @Html.DisplayFor(modelItem => item.Product_Price)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"> <button><i class="fa-solid fa-pen-to-square" style="color:indigo;"></i></button> </a>
+                    <a asp-action="Details" asp-route-id="@item.Id"><button><i class="fa-sharp fa-solid fa-circle-info" style="color:purple;"></i></button> </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id"><button><i class='fas fa-trash' style="color:darkred"></i> </button> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts
+{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/Datatable.js"></script>
+}

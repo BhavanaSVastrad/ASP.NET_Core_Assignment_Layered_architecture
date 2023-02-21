@@ -1,0 +1,109 @@
+﻿
+
+@model BusinessModel.SignUpViewModel
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+<br />
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-60">
+            <div class="row">
+                <div class="col-12  border border-primary rounded " style="background-color:lightskyblue;color:darkblue; font-weight:bold; ">
+                    <br />
+                    <form method="post" asp-action="SignUp">
+                        <div class="form-group">
+                            <label asp-for="Username"></label>
+                            <input type="text" asp-for="Username" placeholder="Enter Username" class="form-control" autocomplete="off" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input type="text" asp-for="Email" placeholder="Enter Email" class="form-control" autocomplete="off" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Mobile"></label>
+                            <input type="text" asp-for="Mobile" placeholder="Enter Mobile Number" class="form-control" autocomplete="off" />
+                            <span asp-validation-for="Mobile" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="Password"></label>
+
+                                    <input type="password" asp-for="Password" id="password" placeholder="Enter Password" class="form-control" autocomplete="off" />
+                                    <i id="open" class="fa fa-eye float-right" style="margin-top:-25px; margin-right:6px; cursor:pointer;"></i>
+                                    <i id="closed" class="fa fa-eye-slash  float-right" style="margin-top:-25px; margin-right:6px; display:none; cursor:pointer;"></i>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label asp-for="ConfirmPassword"></label>
+                                    <input type="password" asp-for="ConfirmPassword" placeholder="Enter Confirm Password" class="form-control" autocomplete="off" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success btn-lg mb-1 float-right" value="Register" />
+
+                        </div>
+                        <div class="form-group">
+                            <a class=" font-weight-bold" asp-action="Login" asp-controller="Account">Already have an account?Login!</a>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+         
+            <div class="col-md-3 col-lg-6 col-xl-5" style="margin-left:80px;">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/user-account-sign-up-4489360-3723267.png"
+                     class="img-fluid" alt="Sample image">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<style>
+    .divider:after,
+    .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+    }
+</style>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#open").click(function () {
+            $("#open").hide();
+            $("#closed").show();
+            $("#password").attr("type", "text");
+        });
+        $("#closed").click(function () {
+            $("#closed").hide();
+            $("#open").show();
+            $("#password").attr("type", "password");
+        });
+
+    });
+</script>

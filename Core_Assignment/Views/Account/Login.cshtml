@@ -1,0 +1,91 @@
+﻿
+
+@model BusinessModel.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+
+
+<section class="vh-100" >
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style="background-color:mediumblue;">
+                <form method="post" asp-action="Login">
+
+
+                    <br />
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label font-weight-bold" for="form3Example3" asp-for="Email" style="color:white">Email </label>
+                        <input type="text" asp-for="Email" placeholder="Enter Email" id="form3Example3" class="form-control " />
+
+                        <span class="text-danger">@TempData["errorEmail"]  </span>
+                        <span asp-validation-for="Email" class="text-danger font-weight-bold"></span>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <label class="form-label font-weight-bold" for="form3Example4" asp-for="Password"  style="color:white">Password</label>
+                        <input type="password" id="password" class="form-control "
+                               asp-for="Password" placeholder="Enter Password" />
+
+                        <i id="open" class="fa fa-eye float-right" style="margin-top:-25px; margin-right:6px; cursor:pointer;"></i>
+                        <i id="closed" class="fa fa-eye-slash  float-right" style="margin-top:-25px; margin-right:6px; display:none; cursor:pointer;"></i>
+                        <span class="text-danger">@TempData["errorPassword"]  </span>
+                        <span asp-validation-for="Password" class="text-danger font-weight-bold" ></span>
+                    </div>
+
+
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <input type="submit" class="btn btn-block btn-primary mb-2" style="background-color:ghostwhite;color:darkblue;font-weight:bold;" value="Login" />
+                        <p style="font-weight:bolder; font-size:20px;color:bisque;">
+                            Don't have an account?   <a class="  font-weight-bold" asp-action="SignUp" asp-controller="Account" style=" color:white">SignUp</a>
+
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    .divider:after,
+    .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+    }
+
+    .h-custom {
+        height: calc(100% - 73px);
+    }
+</style>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#open").click(function () {
+            $("#open").hide();
+            $("#closed").show();
+            $("#password").attr("type", "text");
+        });
+        $("#closed").click(function () {
+            $("#closed").hide();
+            $("#open").show();
+            $("#password").attr("type", "password");
+        });
+
+    });
+</script>

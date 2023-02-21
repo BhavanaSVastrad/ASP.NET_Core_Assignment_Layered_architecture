@@ -1,0 +1,51 @@
+﻿@model BusinessModel.ProductBO
+@{
+   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight:bolder; font-style:italic; color:firebrick; font-size:30px;">Create Product</h4>
+<button style="background-color:papayawhip; width:60px;">
+    <a asp-action="Index"><i class="fa fa-home fa-2x" style="color:forestgreen;"></i></a>
+</button>
+<br />
+<br />
+<div class="row" style="background-color:pink; font-style:italic; margin-left: 2px;">
+    <div class="col-md-4">
+        <br />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product_Image" class="control-label" style="color:darkblue; font-weight:bold;"></label>
+                <input asp-for="Product_Image" class="form-control" />
+                <span asp-validation-for="Product_Image" style="color:darkred; font-weight:bold;"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product_Name" class="control-label" style="color:darkblue; font-weight:bold;"></label>
+                <input asp-for="Product_Name" class="form-control" />
+                <span asp-validation-for="Product_Name" style="color:darkred; font-weight:bold;"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product_Description" class="control-label" style="color:darkblue; font-weight:bold;"></label>
+                <input asp-for="Product_Description" class="form-control" />
+                <span asp-validation-for="Product_Description" style="color:darkred; font-weight:bold;"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product_Price" class="control-label" style="color:darkblue; font-weight:bold;"></label>
+                <input asp-for="Product_Price" class="form-control" />
+                <span asp-validation-for="Product_Price" style="color:darkred; font-weight:bold;"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+
+
+<br />
+<br />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script src="~/js/Category.js"></script>
+
+<button class="btn btn-sm btn-primary m-2" id="btnAddCategory">AddCategory</button>
+
+<table id="example" class="table table-bordered" style="font-weight:bold; font-style:italic;">
+    <thead style="background-color:burlywood;">
+        <tr class="text-center">
+            <th>Id</th>
+            <th>Category_Name</th>
+            <th>Operation</th>
+        </tr>
+    </thead>
+    <tbody class="text-center" id="table_data" style="background-color:blanchedalmond;font-style:italic;"></tbody>
+
+
+
+</table>
+
+<div class="madal fade modal" id="CategoryMadal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:forestgreen; color:whitesmoke;">
+                <h1 class=" modal-title" id="CategoryHeading" style="color:whitesmoke;">Add Category</h1>
+                <button class="close text-danger" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body" style="background-color:lightgreen;">
+                <form method="post">
+
+                    <div class="form-group" id="CatId">
+                        <label style="font-weight:bold;">Id</label>
+                        <input type="text" class="form-control" id="CategoryId" disabled="disabled" />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-weight:bold;">Category Name</label>
+                        <input type="text" placeholder="Enter Category Name" class="form-control" id="Name" />
+
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div class="modal-footer" style="background-color:forestgreen;">
+
+
+                <button class="btn btn-primary" onclick="AddCategory();" id="AddCategory">Save</button>
+
+                <button class="btn btn-warning" onclick="UpdateCategory();" style="display:none;" id="btnUpdate">Update</button>
+
+
+                <button class="btn btn-danger btn-default" data-dismiss="modal">Close</button>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
